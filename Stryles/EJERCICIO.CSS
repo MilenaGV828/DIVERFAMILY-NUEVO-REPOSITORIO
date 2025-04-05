@@ -1,0 +1,93 @@
+body
+{
+background-color: orange;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+font-weight: 100;
+font-style: normal;
+align-items: center;
+}
+
+.centrar {
+text-align: center;
+font-size: 50px;
+font-style: bold;
+margin: 0 auto;
+}
+
+
+.centrartexto {
+text-align: center;
+font-style: italic;
+width:"300" 
+}
+
+
+.container_img {
+width: 310px;
+margin-left: auto;
+margin-right: auto;
+}
+
+.container {
+    width: 310px;
+    margin: auto;
+    padding: auto; 
+
+    
+    }
+
+    .my-element {
+        width: 200px;
+        height: 100px;
+     }
+
+.img {
+text-align: justify;
+
+}
+
+.textos {
+margin: 0 auto;
+text-align: center;
+
+
+}
+
+.margen {
+margin: 50px auto;
+
+
+}
+
+
+
+
+
+
+
+
+input,
+select,
+textarea {
+width: 20%;
+padding: 10px;
+border: 1px solid gray;
+border-radius: 5px;
+box-sizing: border-box;
+text-align: center;
+margin: auto;
+}
+
+button {
+width: 20%;
+padding: 10px;
+background-color: gray;
+color: rgb(10, 10, 10);
+border: none;
+border-radius: 5px;
+cursor: pointer;
+
+
+
+
+}
