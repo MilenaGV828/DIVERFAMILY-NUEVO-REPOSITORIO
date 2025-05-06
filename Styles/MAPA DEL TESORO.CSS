@@ -1,0 +1,25 @@
+body
+{
+background-color:rgba(252, 130, 49, 0.884) ;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+font-weight: 120%;
+font-style: normal;
+align-items: center;
+font-size: 115%;
+margin-left: center;
+}
+
+.Titulo {
+    margin-left: center;
+    text-align: center;
+    font-style: b;
+    margin: 0 auto;
+    font-size: 120%
+
+   
+}
+
+.img {
+    margin-bottom: 700px;
+    margin-left: center;
+}

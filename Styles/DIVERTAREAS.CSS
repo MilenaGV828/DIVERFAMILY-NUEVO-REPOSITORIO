@@ -1,0 +1,54 @@
+body
+{
+background-color:rgba(252, 130, 49, 0.884) ;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+font-weight: 120%;
+font-style: normal;
+align-items: center;
+font-size: 115%;
+margin-left: center;
+}
+
+.container {
+    width: 310px;
+    margin: auto;
+    padding: auto; 
+    color:white;
+    height: 300px;
+    margin-left:center;
+    display: flex;
+  flex-direction: column; /* Para apilar verticalmente */
+  gap: 10px; /* Espacio entre los inputs */ 
+  font-size: 20px;
+  
+}
+ .listas {
+    color: black;
+    
+ }
+
+ .myinput {
+   width: 90px;
+   margin: auto;
+   padding: 6px; 
+   color:white;
+   height: 40;
+   margin-left: 10px;
+   font-size: 20px;
+   
+   }
+ .imagen {
+  margin-right: 50%;
+ }
+
+  .my-inputplaceholder {
+  color:white;
+height: 30px;
+   margin-left: 10px;
+   font-size: 20px;
+   font-weight: bold;
+  
+  }
+ 
+
+ 

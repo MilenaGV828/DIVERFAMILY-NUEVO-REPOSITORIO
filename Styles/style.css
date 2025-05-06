@@ -16,6 +16,15 @@ body
 
 .container{
     /* padding: 20px; */
-    padding-bottom: 20px  ;
-    margin: 20px;
+    padding-bottom: 30px  ;
+    margin: 30px;
 }
+.img {
+    display: block;
+    margin: auto;
+    width: 30%;
+    
+  }
+  
+
+  
