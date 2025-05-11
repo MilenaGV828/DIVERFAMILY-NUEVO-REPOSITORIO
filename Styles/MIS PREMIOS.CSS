@@ -28,12 +28,12 @@ body
  }
 
  .myinput {
-   width: 90px;
+   width: 130px;
    margin: auto;
    padding: 6px; 
    color:white;
-   height: 40;
-   margin-left: 10px;
+   height: 50;
+   margin-left: 20px;
    font-size: 20px;
    
    }
@@ -45,17 +45,10 @@ margin-left:40px;
 
  }
 
-  .my-inputplaceholder {
-  color:white;
-height: 10px;
-   margin-left: 20px;
-   font-size: 20px;
-   font-weight: bold;
-  
-  }
  .textos{
-    font-size: 30px;
+    font-size: 40px;
     font-weight: bold;  
+    margin-left:10px;
  }
 
   .imagenfinal {
@@ -74,7 +67,6 @@ height: 10px;
     background-color:rgb(0, 110, 255);
   }
   
-
   .botones {
     display: flex; /* Los coloca en línea */
     gap: 10px; /* Espacio entre los botones */
@@ -84,3 +76,14 @@ height: 10px;
     font-size: 16px;
     cursor: pointer;
   }
+
+.saludo {
+  font-size: 2em;
+  color:black;
+  margin-top: -30px
+}
+.nombre {
+  font-weight: bold;
+  color: blue;
+  margin-top: -30px
+}

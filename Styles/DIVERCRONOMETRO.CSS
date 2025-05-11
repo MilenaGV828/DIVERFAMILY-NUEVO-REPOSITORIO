@@ -1,0 +1,36 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 50px;
+    background-color: #f0f8ff;
+  }
+  #display {
+    font-size: 48px;
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 3px solid #333;
+    display: inline-block;
+    min-width: 200px;
+    background-color: #fff;
+    border-radius: 10px;
+  }
+  button {
+    font-size: 18px;
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  #start {
+    background-color: #4CAF50;
+    color: white;
+  }
+  #stop {
+    background-color: #f44336;
+    color: white;
+  }
+  #reset {
+    background-color: #555;
+    color: white;
+  }
