@@ -10,34 +10,43 @@
 <body>
 
         <div class="container_img">
-               
+
         </div>
 
-        
+
         <div class="container">
                 <img src="../assets/diverfamilylider.jpg" width="300" height="200">
                 <h3 class="centrar"> Ya estas registrado?</h3>
                 <h3 class="centrar"><a href="../Views/INGRESO.HTML">inicia sesion aqui.</a></h3>
+
+                <!-- name -->
                 <h3 class="texto">NOMBRE:</h3>
-                <input type="text"></input>
+                <input type="text" id="nombre"></input>
+
+                <!-- document -->
                 <h3 class="texto">DOCUMENTO</h3>
-                        <input type="number"></input>
-                        <h3 class="texto">CONTRASEÑA</h3>
-                                <input type="password"></input>
-                                <h3 class="texto">VALIDAR CONTRASEÑA</h3>
-                                        <input type="password"></input>
+                <input type="number" id="documento"></input>
 
+                <!-- password -->
+                <h3 class="texto">CONTRASEÑA</h3>
+                <input type="password" id="contrasena"></input>
 
-                                        <h3 class="texto">ELEGIR ROL</h3>
-                                                <select>
-                                                        <option>Lider</option>
-                                                        <option>Integrante de la familia</option>
-                                                </select>
+                <!-- validate password -->
+                <h3 class="texto">VALIDAR CONTRASEÑA</h3>
+                <input type="password" id="validarContrasena"></input>
+
+                <!-- rol  -->
+                <h3 class="texto">ELEGIR ROL</h3>
+                <select id="rol">
+                        <option>Lider</option>
+                        <option>Integrante de la familia</option>
+                </select>
+
         </div>
         <div class="container">
-                <button>REGISTRARME</button>
+                <button id="REGISTRARME">REGISTRARME</button>
         </div>
-        
+        <script src="../Controllers/EJERCICIO.js"></script>
 </body>
 
 
