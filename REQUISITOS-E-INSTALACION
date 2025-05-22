@@ -8,6 +8,22 @@ REQUISITOS MINIMOS
 Cualquier dispositivo con acceso a internet.
 "Se recomienda un mínimo de 1 GB de RAM".
 
+Dado que DIVERFAMILY estará disponible como aplicación web, es importante definir las características y los navegadores compatibles para asegurar una experiencia de usuario consistente y funcional en la plataforma web.
+Navegadores Compatibles: Se buscará la compatibilidad y el correcto funcionamiento de la aplicación web DIVERFAMILY en los distintos navegadores de escritorio y móviles:
+Escritorio: 
+
+	Google Chrome 
+	Mozilla Firefox 
+	Safari (para macOS y iOS)
+	Microsoft Edge 
+Móviles (a través de sus navegadores): 
+	Chrome en Android 
+	Safari en iOS 
+Resoluciones de Pantalla: La interfaz web de DIVERFAMILY se diseñará con un enfoque responsive, adaptándose a diferentes tamaños de pantalla y resoluciones tanto en escritorio como en dispositivos móviles. Se priorizará una visualización óptima en resoluciones comunes como:
+o	Escritorio: 1366x768, 1920x1080 y superiores.
+o	Móviles: Rangos de anchos típicos (320px a 480px) y altos variables.
+
+
 PASO A PASO DE LA INSTALACION
 A continuación, se detallan los pasos para instalar DIVERFAMILY en dispositivos Android e iOS:
 
