@@ -1,0 +1,38 @@
+PLAN DE IMPLANTACION
+
+DIVERFAMILY es una aplicación familiar con herramientas motivadoras y divertidas para la organización y realización de actividades cotidianas 
+dentro del hogar especialmente para los niños con la debida participación y acompañamiento de sus responsables, manteniéndolos en una divertida 
+interacción con sus hijos tanto dentro como fuera de casa.
+
+REQUISITOS MINIMOS
+Cualquier dispositivo con acceso a internet.
+"Se recomienda un mínimo de 1 GB de RAM".
+
+PASO A PASO DE LA INSTALACION
+A continuación, se detallan los pasos para instalar DIVERFAMILY en dispositivos Android e iOS:
+
+Para Dispositivos Android
+
+1.  Abrir Google Play Store: Localiza y abre la aplicación Play Store en tu dispositivo.
+2.  Buscar DIVERFAMILY: Toca la barra de búsqueda en la parte superior e ingresa DIVERFAMILY. Presiona el icono de búsqueda.
+3.  Seleccionar la Aplicación: Busca la aplicación DIVERFAMILY (busca nuestro icono distintivo) y tócala para acceder a su página.
+4.  Instalar la Aplicación:Toca el botón Instalar.
+5.  Aceptar Permisos (si aplica): Lee y acepta los permisos que la aplicación solicite para continuar.
+6.  Esperar la Finalización:Espera a que la descarga e instalación se completen.
+7.  Abrir DIVERFAMILY:Toca el botón Abrir una vez finalizada la instalación. También podrás encontrar el icono en el menú de tus aplicaciones.
+
+Para Dispositivos iOS
+
+1.  Abrir la App Store:Localiza y abre la aplicación App Storeen tu iPhone o iPad.
+2.  Buscar DIVERFAMILY:Toca la pestaña Buscar en la parte inferior, luego la barra de búsqueda en la parte superior e ingresa DIVERFAMILY. Toca el botón Buscar en el teclado.
+3.  Seleccionar la Aplicación:Busca la aplicación DIVERFAMILY (busca nuestro icono distintivo) y tócala para acceder a su página.
+4.  Obtener e Instalar la Aplicación:Toca el botón Obtener (o el icono de la nube si ya la descargaste antes). Autentícate con Face ID, Touch ID o tu contraseña de Apple ID si se te solicita.
+5.  Esperar la Finalización: Espera a que la descarga e instalación se completen. El progreso se mostrará en el icono de la aplicación en tu pantalla de inicio.
+6.  Abrir DIVERFAMILY:Toca el botón Abrir una vez finalizada la instalación. El icono de la aplicación estará disponible en tu pantalla de inicio.
+
+ Licencia Propietaria
+
+DIVERFAMILY es una aplicación con licencia propietaria. Todos los derechos están reservados por Blanca Milena.DIVER.FAMILY.
+Los usuarios tienen derecho a utilizar la aplicación únicamente de acuerdo con los términos de uso que se proporcionarán al instalar o utilizar la aplicación. 
+No se permite la copia, modificación, distribución o ingeniería inversa sin el permiso expreso por escrito del propietario.
+
