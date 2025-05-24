@@ -2,7 +2,7 @@
 
 <head>
         <title>"REGISTRO LIDER DIVERFAMILY</title>
-        <link rel="stylesheet" href="../Styles/EJERCICIO.CSS">
+        <link rel="stylesheet" href="Styles/EJERCICIO.CSS">
 
 
 </head>
@@ -14,10 +14,10 @@
         </div>
 
 
-        <div class="container">
-                <img src="../assets/diverfamilylider.jpg" width="300" height="200">
+        <div class="container" id="formulario">
+                <img src="assets/diverfamilylider.jpg" width="300" height="200">
                 <h3 class="centrar"> Ya estas registrado?</h3>
-                <h3 class="centrar"><a href="../Views/INGRESO.HTML">inicia sesion aqui.</a></h3>
+                <h3 class="centrar"><a href="Views/INGRESO.HTML">inicia sesion aqui.</a></h3>
 
                 <!-- name -->
                 <h3 class="texto">NOMBRE:</h3>
@@ -46,8 +46,16 @@
         <div class="container">
                 <button id="REGISTRARME">REGISTRARME</button>
         </div>
-        <script src="../Controllers/EJERCICIO.js"></script>
-</body>
+        <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
 
+        <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+        
+
+        <script src="Controllers/BASEDEDATOS.js" type="module"></script>
+        <script type="module" src="Controllers/EJERCICIO.js"></script>
+
+
+</body>
 
 </html>
