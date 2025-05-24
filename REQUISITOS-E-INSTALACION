@@ -1,0 +1,51 @@
+PLAN DE IMPLANTACION
+
+DIVERFAMILY es una aplicación familiar con herramientas motivadoras y divertidas para la organización y realización de actividades cotidianas 
+dentro del hogar especialmente para los niños con la debida participación y acompañamiento de sus responsables, manteniéndolos en una divertida 
+interacción con sus hijos tanto dentro como fuera de casa.
+
+REQUISITOS MINIMOS
+Cualquier dispositivo con acceso a internet.
+"Se recomienda un mínimo de 1 GB de RAM".
+
+Dado que DIVERFAMILY estará disponible como aplicación web, es importante definir las características y los navegadores compatibles para asegurar una experiencia de usuario consistente y funcional en la plataforma web.
+Navegadores Compatibles: Se buscará la compatibilidad y el correcto funcionamiento de la aplicación web DIVERFAMILY en los distintos navegadores de escritorio y móviles:
+Escritorio: 
+
+Google Chrome 
+-Mozilla Firefox 
+-Safari (para macOS y iOS)
+-Microsoft Edge 
+-Móviles (a través de sus navegadores): 
+-Chrome en Android 
+-Safari en iOS 
+
+Resoluciones de Pantalla: La interfaz web de DIVERFAMILY se diseñará con un enfoque responsive, adaptándose a diferentes tamaños de pantalla y resoluciones tanto en escritorio como en dispositivos móviles. Se priorizará una visualización óptima en resoluciones comunes como:
+-Escritorio: 1366x768, 1920x1080 y superiores.
+-Móviles: Rangos de anchos típicos (320px a 480px) y altos variables.
+
+
+PASO A PASO DE LA INSTALACION
+A continuación, se detallan los pasos para instalar DIVERFAMILY en dispositivos Android e iOS:
+
+Para Dispositivos Android
+
+1.  Abrir Google Play Store: Localiza y abre la aplicación Play Store en tu dispositivo.
+2.  Buscar DIVERFAMILY: Toca la barra de búsqueda en la parte superior e ingresa DIVERFAMILY. Presiona el icono de búsqueda.
+3.  Seleccionar la Aplicación: Busca la aplicación DIVERFAMILY (busca nuestro icono distintivo) y tócala para acceder a su página.
+4.  Instalar la Aplicación:Toca el botón Instalar.
+5.  Aceptar Permisos (si aplica): Lee y acepta los permisos que la aplicación solicite para continuar.
+6.  Esperar la Finalización:Espera a que la descarga e instalación se completen.
+7.  Abrir DIVERFAMILY:Toca el botón Abrir una vez finalizada la instalación. También podrás encontrar el icono en el menú de tus aplicaciones.
+
+Para Dispositivos iOS
+
+1.  Abrir la App Store:Localiza y abre la aplicación App Storeen tu iPhone o iPad.
+2.  Buscar DIVERFAMILY:Toca la pestaña Buscar en la parte inferior, luego la barra de búsqueda en la parte superior e ingresa DIVERFAMILY. Toca el botón Buscar en el teclado.
+3.  Seleccionar la Aplicación:Busca la aplicación DIVERFAMILY (busca nuestro icono distintivo) y tócala para acceder a su página.
+4.  Obtener e Instalar la Aplicación:Toca el botón Obtener (o el icono de la nube si ya la descargaste antes). Autentícate con Face ID, Touch ID o tu contraseña de Apple ID si se te solicita.
+5.  Esperar la Finalización: Espera a que la descarga e instalación se completen. El progreso se mostrará en el icono de la aplicación en tu pantalla de inicio.
+6.  Abrir DIVERFAMILY:Toca el botón Abrir una vez finalizada la instalación. El icono de la aplicación estará disponible en tu pantalla de inicio.
+
+
+
