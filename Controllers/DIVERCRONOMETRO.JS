@@ -1,53 +1,89 @@
-let horas = 0;
-let minutos = 0;
-let segundos = 0;
-let running = false;
-let timer;
 
-const display = document.getElementById('display');
-const startBtn = document.getElementById('start');
-const stopBtn = document.getElementById('stop');
-const resetBtn = document.getElementById('reset');
+// Cronómetro con alarma divertida para niños
+let startBtn = document.getElementById("start");
+let stopBtn = document.getElementById("stop");
+let resetBtn = document.getElementById("reset");
+let setBtn = document.getElementById("setTime");
+let inputMinutes = document.getElementById("inputMinutes");
+let display = document.getElementById("display");
 
-function actualizarDisplay() {
-  const h = horas.toString().padStart(2, '0');
-  const m = minutos.toString().padStart(2, '0');
-  const s = segundos.toString().padStart(2, '0');
-  display.textContent = `${h}:${m}:${s}`;
+let seconds = 0;
+let minutes = 0;
+let hours = 0;
+let interval = null;
+let targetSeconds = null;
+
+let alarmSound = new Audio("https://cdn.pixabay.com/audio/2022/03/15/audio_7fdc84dfd4.mp3");
+let buttonSound = new Audio("https://cdn.pixabay.com/audio/2022/10/31/audio_ebd86ae8db.mp3");
+
+function updateDisplay() {
+    let sec = seconds < 10 ? "0" + seconds : seconds;
+    let min = minutes < 10 ? "0" + minutes : minutes;
+    let hr = hours < 10 ? "0" + hours : hours;
+    display.textContent = `${hr}:${min}:${sec}`;
+    display.style.color = seconds % 2 === 0 ? '#ff595e' : '#4f772d';
 }
 
-function contar() {
-  segundos++;
-  if (segundos >= 60) {
-    segundos = 0;
-    minutos++;
-  }
-  if (minutos >= 60) {
-    minutos = 0;
-    horas++;
-  }
-  actualizarDisplay();
+function startTimer() {
+    if (!interval) {
+        interval = setInterval(() => {
+            seconds++;
+            if (seconds === 60) {
+                seconds = 0;
+                minutes++;
+            }
+            if (minutes === 60) {
+                minutes = 0;
+                hours++;
+            }
+
+            updateDisplay();
+
+            let totalNow = hours * 3600 + minutes * 60 + seconds;
+            if (targetSeconds !== null && totalNow === targetSeconds) {
+                alarmSound.play();
+                alert("¡Tiempo cumplido! ⏰");
+                stopTimer();
+            }
+        }, 1000);
+    }
+    buttonSound.play();
 }
 
-startBtn.addEventListener('click', () => {
-  if (!running) {
-    running = true;
-    timer = setInterval(contar, 1000);
-  }
+function stopTimer() {
+    clearInterval(interval);
+    interval = null;
+    buttonSound.play();
+}
+
+function resetTimer() {
+    stopTimer();
+    seconds = 0;
+    minutes = 0;
+    hours = 0;
+    targetSeconds = null;
+    updateDisplay();
+    buttonSound.play();
+}
+
+function setTimer() {
+    let min = parseInt(inputMinutes.value);
+    if (!isNaN(min) && min > 0) {
+        targetSeconds = min * 60;
+        alert(`Alarma programada para ${min} minuto(s).`);
+    } else {
+        alert("Por favor, ingresa un número válido de minutos.");
+    }
+    buttonSound.play();
+}
+
+[startBtn, stopBtn, resetBtn, setBtn].forEach(btn => {
+    btn.addEventListener("click", () => {
+        buttonSound.play();
+    });
 });
 
-stopBtn.addEventListener('click', () => {
-  if (running) {
-    clearInterval(timer);
-    running = false;
-  }
-});
-
-resetBtn.addEventListener('click', () => {
-  clearInterval(timer);
-  running = false;
-  horas = 0;
-  minutos = 0;
-  segundos = 0;
-  actualizarDisplay();
-});
+startBtn.addEventListener("click", startTimer);
+stopBtn.addEventListener("click", stopTimer);
+resetBtn.addEventListener("click", resetTimer);
+setBtn.addEventListener("click", setTimer);

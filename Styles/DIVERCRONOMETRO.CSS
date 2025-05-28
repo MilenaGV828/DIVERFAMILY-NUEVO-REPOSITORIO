@@ -1,11 +1,22 @@
+
 body {
     font-family: Arial, sans-serif;
     text-align: center;
     padding: 50px;
-    background-color: #f0f8ff;
+    background-color: #FF8645;
+
+  .input-alarma {
+  width: 70px;       /* Controla el ancho horizontal (más corto) */
+  height: 30px;      /* Controla el alto vertical (más alto) */
+  padding: 5px;
+  font-size: 14px;
+  border: 1px solid blue;
+  border-radius: 4px;
+  background-color: cyan;
+}
   }
   #display {
-    font-size: 48px;
+    font-size: 18px;
     margin-bottom: 20px;
     padding: 20px;
     border: 3px solid #333;

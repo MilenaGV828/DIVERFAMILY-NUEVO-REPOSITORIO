@@ -49,14 +49,4 @@ document.getElementById("REGISTRARME").addEventListener("click", function () {
         alert("Ocurrió un error al registrar el usuario.");
     });
 
-    // // Guardar en localStorage
-    // localStorage.setItem(`usuario_${documento}`, JSON.stringify(usuario));
-    // alert("Usuario registrado exitosamente.");
-    
-    // // Limpiar campos (opcional)
-    // document.getElementById("nombre").value = "";
-    // document.getElementById("documento").value = "";
-    // document.getElementById("contrasena").value = "";
-    // document.getElementById("validarContrasena").value = "";
-    // document.getElementById("rol").selectedIndex = 0;
 });
