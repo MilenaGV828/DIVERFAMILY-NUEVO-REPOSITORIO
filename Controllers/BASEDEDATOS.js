@@ -17,9 +17,7 @@ const firebaseConfig = {
 // Inicializar Firebase y Firestore
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-const auth = firebase.auth();
 
-////////registro usuario
 export async function guardarRegistro(datos) {
   console.log("Base de datos");
   console.log(datos);
@@ -27,31 +25,7 @@ export async function guardarRegistro(datos) {
   try {
     const docRef = await addDoc(collection(db, "USUARIOS"), datos);
     console.log("Documento guardado con ID:", docRef.id);
-    alert('usuario creado exitosamente');
   } catch (error) {
     console.error("Error al guardar usuario:", error);
-    alert('error usuario');
   }
-
-  // Función para login
-  document.getElementById("login-form").addEventListener("submit", (e) => {
-    // e.preventDefault();
-
-    const name = document.getElementById("name").value;
-    const password = document.getElementById("password").value;
-
-    console.log(name, password)
-
-    auth.signInWithEmailAndPassword(name, password)
-      .then((userCredential) => {
-        // Redirigir a la vista del administrador
-        alert('hola');
-        window.location.href = "ADMINVIEW.HTML";
-        
-      })
-      .catch((error) => {
-        alert("Error de autenticación: " + error.message);
-        
-      });
-  });
 }

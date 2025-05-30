@@ -1,6 +1,6 @@
-import { guardarRegistro } from './BASEDEDATOS.js';
+import {guardarRegistro} from './BASEDEDATOS.js';
 
-document.getElementById("REGISTRARME").addEventListener("click", function () {
+document.getElementById("REGISTRARME").addEventListener("click", async function () {
     // Obtener valores del formulario
     const nombre = document.getElementById("nombre").value.trim();
     const documento = document.getElementById("documento").value.trim();
@@ -30,14 +30,15 @@ document.getElementById("REGISTRARME").addEventListener("click", function () {
 
     // Mostrar el objeto en la consola antes de guardarlo
     console.log("Usuario a guardar:", usuario);
-
-    guardarRegistro(usuario);
-
-    // Limpiar campos
-    document.getElementById("nombre").value = "";
-    document.getElementById("documento").value = "";
-    document.getElementById("contrasena").value = "";
-    document.getElementById("validarContrasena").value = "";
-    document.getElementById("rol").selectedIndex = 0;
+    
+    try {
+        await 
+        guardarRegistro(usuario);
+        // Si todo va bien, redirigimos a INTEGRANTES.html
+        window.location.href = "../Views/R.INTEGRANTES.HTML";
+    } catch (error) {
+        // Mostrar error en caso de que falle guardarRegistro
+        alert("Hubo un error durante el registro: " + error.message);
+        console.error("Error al guardar el registro:", error);
+    }
 });
-

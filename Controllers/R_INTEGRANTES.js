@@ -1,20 +1,38 @@
 
-document.addEventListener('DOMContentLoaded', function() {
-    const nuevoIntegranteBtn = document.querySelector('.container.button button');
-    const nombreInput = document.querySelector('.container input[type="text"]');
-    const passwordInput = document.querySelector('.container input[type="password"]');
-    const rolSelect = document.querySelector('.container select');
+import { guardarRegistro } from './BASEDEDATOS.js';
 
-    nuevoIntegranteBtn.addEventListener('click', function() {
-        const nombre = nombreInput.value;
-        const password = passwordInput.value;
-        const rol = rolSelect.value;
+document.addEventListener("DOMContentLoaded", () => {
+    const boton = document.getElementById("registrarIntegranteBtn");
 
-        console.log('Nombre:', nombre);
-        console.log('Contraseña:', password);
-        console.log('Rol:', rol);
+    boton.addEventListener("click", async () => {
+        // Obtener los valores del formulario
+        const nombre = document.getElementById("nombre").value.trim();
+        const contrasena = document.getElementById("contrasena").value;
+        const rol = document.getElementById("rol").value;
 
-        // Aquí podrías agregar la lógica para enviar estos datos a un servidor
-        // o realizar alguna otra acción con la información.
+        // Validar campos
+        if (!nombre || !contrasena || !rol) {
+            alert("Por favor completa todos los campos.");
+            return;
+        }
+
+        // Crear objeto del usuario
+        const usuario = {
+            nombre,
+            contrasena,
+            rol
+        };
+
+        try {
+            // Guardar el registro
+            await guardarRegistro(usuario);
+
+            // Guardar mensaje en localStorage y redirigir
+            localStorage.setItem("mensajeIngreso", "¡Integrante registrado con éxito! Inicia sesión.");
+            window.location.href = "../Views/INGRESO.HTML";
+        } catch (error) {
+            console.error("Error al registrar integrante:", error);
+            alert("Error al registrar integrante: " + error.message);
+        }
     });
 });

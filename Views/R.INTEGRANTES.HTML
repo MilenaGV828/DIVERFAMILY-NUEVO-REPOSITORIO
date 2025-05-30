@@ -1,39 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
+    <meta charset="UTF-8">
     <title>REGISTRO INTEGRANTES DIVERFAMILY</title>
     <link rel="stylesheet" href="../Styles/INTEGRANTES.CSS">
 </head>
 
 <body>
-
-
-
     <div class="container">
-        <img src="../assets/diverfamilyintegrante.jpg"
-        width="300" height="200">
+        <img src="../assets/diverfamilyintegrante.jpg" width="300" height="200">
+
         <h3 class="texto">NOMBRE:</h3>
-        <input type="text"></input>
+        <input type="text" id="nombre" />
 
-        <h5 class="texto">CONTRASEÑA</h5>
-            <input type="password"></input>
+        <h3 class="texto">CONTRASEÑA</h3>
+        <input type="password" id="contrasena" />
 
-            <h3 class="texto">ROL DEL INTEGRANTE</h3>
-            <select>
-                <option>Lider</option>
-                <option>Integrante de la familia</option>
-            </select>
+        <h3 class="texto">ROL DEL INTEGRANTE</h3>
+        <select id="rol">
+            <option value="Lider">Líder</option>
+            <option value="Integrante de la familia">Integrante de la familia</option>
+        </select>
     </div>
+
     <div class="container button">
-
-        <button>NUEVO INTEGRANTE</button>
+        <button id="registrarIntegranteBtn">REGISTRAR INTEGRANTE</button>
     </div>
 
-
-
-<script src="../Controllers/R_INTEGRANTES.js"></script>
-<script src="../Controllers/BASEDEDATOS.js" type="module"></script>
+    <!-- Scripts -->
+    <script src="../Controllers/BASEDEDATOS.js" type="module"></script>
+    <script src="../Controllers/R_INTEGRANTES.js" type="module"></script>
 </body>
 
 </html>

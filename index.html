@@ -1,62 +1,57 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="es">
 <head>
-        <title>"REGISTRO LIDER DIVERFAMILY</title>
-        <link rel="stylesheet" href="Styles/EJERCICIO.CSS">
-
-
+    <meta charset="UTF-8">
+    <title>REGISTRO LIDER DIVERFAMILY</title>
+    <link rel="stylesheet" href="Styles/EJERCICIO.CSS">
 </head>
-
 <body>
 
-        <div class="container_img">
+    <div class="container_img">
+        <!-- Aquí podrías colocar una imagen decorativa si lo deseas -->
+    </div>
 
-        </div>
-
-
-        <div class="container" id="formulario">
-                <img src="assets/diverfamilylider.jpg" width="300" height="200">
-                <h3 class="centrar"> Ya estas registrado?</h3>
-                <h3 class="centrar"><a href="Views/INGRESO.HTML">inicia sesion aqui.</a></h3>
-
-                <!-- name -->
-                <h3 class="texto">NOMBRE:</h3>
-                <input type="text" id="nombre"></input>
-
-                <!-- document -->
-                <h3 class="texto">DOCUMENTO</h3>
-                <input type="number" id="documento"></input>
-
-                <!-- password -->
-                <h3 class="texto">CONTRASEÑA</h3>
-                <input type="password" id="contrasena"></input>
-
-                <!-- validate password -->
-                <h3 class="texto">VALIDAR CONTRASEÑA</h3>
-                <input type="password" id="validarContrasena"></input>
-
-                <!-- rol  -->
-                <h3 class="texto">ELEGIR ROL</h3>
-                <select id="rol">
-                        <option>Lider</option>
-                        <option>Integrante de la familia</option>
-                        <option>Administrador</option>
-                </select>
-
-        </div>
-        <div class="container">
-                <button id="REGISTRARME">REGISTRARME</button>
-        </div>
-        <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
-
-        <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+    <div class="container" id="formulario">
+        <img src="assets/diverfamilylider.jpg" width="300" height="200" alt="Logo DiverFamily">
         
+        <h3 class="centrar">¿Ya estás registrado?</h3>
+        <h3 class="centrar"><a href="Views/INGRESO.HTML">Inicia sesión aquí.</a></h3>
 
-        <script src="Controllers/BASEDEDATOS.js" type="module"></script>
-        <script type="module" src="Controllers/EJERCICIO.js"></script>
+        <form id="registroForm">
+            <!-- Nombre -->
+            <h3 class="texto">NOMBRE:</h3>
+            <input type="text" id="nombre" required />
 
+            <!-- Documento -->
+            <h3 class="texto">DOCUMENTO:</h3>
+            <input type="number" id="documento" required />
+
+            <!-- Contraseña -->
+            <h3 class="texto">CONTRASEÑA:</h3>
+            <input type="password" id="contrasena" required />
+
+            <!-- Validar Contraseña -->
+            <h3 class="texto">VALIDAR CONTRASEÑA:</h3>
+            <input type="password" id="validarContrasena" required />
+
+            <!-- Rol -->
+            <h3 class="texto">ELEGIR ROL:</h3>
+            <select id="rol" required>
+                <option value="Lider">Líder</option>
+                <option value="Integrante de la familia">Integrante de la familia</option>
+                <option value="Administrador">Administrador</option>
+            </select>
+
+            <!-- Botón -->
+            <div class="centrar" style="margin-top: 20px;">
+                <button id="REGISTRARME" type="button">REGISTRARME</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Firebase y lógica -->
+    <script type="module" src="Controllers/BASEDEDATOS.js"></script>
+    <script type="module" src="Controllers/EJERCICIO.js"></script>
 
 </body>
-
 </html>
