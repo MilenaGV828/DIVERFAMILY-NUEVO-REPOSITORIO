@@ -35,7 +35,7 @@ document.getElementById("REGISTRARME").addEventListener("click", async function 
         await 
         guardarRegistro(usuario);
         // Si todo va bien, redirigimos a INTEGRANTES.html
-        window.location.href = "../Views/R_INTEGRANTES.HTML";
+        window.location.href = "Views/R_INTEGRANTES.HTML";
     } catch (error) {
         // Mostrar error en caso de que falle guardarRegistro
         alert("Hubo un error durante el registro: " + error.message);
