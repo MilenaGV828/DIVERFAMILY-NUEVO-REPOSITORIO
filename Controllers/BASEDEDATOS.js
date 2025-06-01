@@ -18,14 +18,12 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+// 2. Función para guardar usuario
 export async function guardarRegistro(datos) {
-  console.log("Base de datos");
-  console.log(datos);
-
-  try {
-    const docRef = await addDoc(collection(db, "USUARIOS"), datos);
-    console.log("Documento guardado con ID:", docRef.id);
-  } catch (error) {
-    console.error("Error al guardar usuario:", error);
-  }
+  const docRef = await addDoc(collection(db, "USUARIOS"), datos);
+  console.log("Documento guardado con ID:", docRef.id);
+  return docRef.id;
 }
+
+// 3. Aquí es donde debes poner la línea para exportar `db`
+export { db };
