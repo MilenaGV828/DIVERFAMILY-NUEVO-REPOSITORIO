@@ -1,25 +1,83 @@
+import { db } from "./BASEDEDATOS.js";
+import {
+  collection,
+  doc,
+  getDoc,
+  setDoc
+} from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
 
-document.addEventListener('DOMContentLoaded', function() {
-  const asignarBtn = document.querySelector('button[type="submit"]');
-  const nombreUsuarioInput = document.querySelector('input[name="usuario"]');
-  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+// Botón asignar tareas
+document.getElementById("btnAsignar").addEventListener("click", async () => {
+  const nombre = document.getElementById("usuario").value.trim();
+  const documento = document.getElementById("password").value.trim();
 
-  asignarBtn.addEventListener('click', function() {
-    const nombreUsuario = nombreUsuarioInput.value;
+  if (!nombre || !documento) {
+    alert("❌ Ingresa nombre de usuario y documento.");
+    return;
+  }
+
+  try {
+    // Validar usuario en la colección INTEGRANTES
+    const docRef = doc(db, "INTEGRANTES", documento);
+    const docSnap = await getDoc(docRef);
+
+    if (!docSnap.exists()) {
+      alert("❌ Usuario no registrado en INTEGRANTES.");
+      return;
+    }
+
+    const data = docSnap.data();
+    if (data.nombre !== nombre) {
+      alert("❌ El nombre no coincide con el documento.");
+      return;
+    }
+
+    // Guardar el usuario activo para MAPA DEL TESORO
+    const idUsuario = `${nombre}_${documento}`;
+    localStorage.setItem("usuarioActivo", idUsuario);
+
+    // Recolectar tareas seleccionadas
     const tareasSeleccionadas = [];
-
-    checkboxes.forEach(checkbox => {
+    document.querySelectorAll("input[type='checkbox']").forEach((checkbox) => {
       if (checkbox.checked) {
-        // Intentamos acceder al texto del label desde el elemento padre (<li>)
-        const listItem = checkbox.parentNode;
-        const label = listItem.querySelector('label');
+        const label = document.querySelector(`label[for="${checkbox.id}"]`);
         if (label) {
-          tareasSeleccionadas.push(label.textContent);
+          tareasSeleccionadas.push({
+            nombre: label.innerText,
+            completada: false,
+            puntos: 5
+          });
         }
       }
     });
 
-    console.log('Usuario:', nombreUsuario);
-    console.log('Tareas Asignadas:', tareasSeleccionadas);
-  });
+    if (tareasSeleccionadas.length === 0) {
+      alert("❌ Selecciona al menos una tarea.");
+      return;
+    }
+
+    // Guardar tareas en la colección MAPA DEL TESORO
+    await setDoc(doc(db, "MAPA DEL TESORO", idUsuario), {
+      nombre: nombre,
+      documento: documento,
+      tareas: tareasSeleccionadas,
+      puntosTotales: 0
+    });
+
+    alert("🎉 Tareas asignadas correctamente al mapa del tesoro.");
+
+  } catch (error) {
+    console.error("Error:", error);
+    alert("❌ Ocurrió un error al asignar tareas.");
+  }
+});
+
+// Botón Mapa del Tesoro
+document.getElementById("btnMapaTesoro").addEventListener("click", () => {
+  window.location.href = "../views/MAPA DEL TESORO.html";
+});
+
+// Botón Regresar al Menú
+document.getElementById("btnRegresar").addEventListener("click", () => {
+  window.location.href = "../Views/Diverfamily.html";
 });

@@ -1,52 +1,41 @@
 body {
-    margin: 0;
-    font-family: sans-serif;
-    background-color: #f97d46;
-  }
-  
-  /* .mapa-container {
-    position: relative;
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
-    height: 80vh;
-    overflow: hidden;
-    
-  } */
-  
-  
-  .fondo {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0;
-  }
-  
-  .tarea, .tesoro {
-    position: absolute;
-    z-index: 1;
-    text-align: center;
-  }
-  
-  .tarea img, .tesoro img {
-    width: 60px;
-    display: block;
-    margin: 0 auto;
-  }
-  
-  .tarea input[type="checkbox"] {
-    margin-top: 5px;
-    transform: scale(1.2);
-  }
-  
-  .puntos {
-    text-align: center;
-    font-size: 1.5rem;
-    margin-top: 10px;
-    background: blue;
-    padding: 10px;
-    border-radius: 10px;
-    width: fit-content;
-    margin: 10px auto;
-  }
+  background-color:#fff3e0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.img-thumbnail {
+  width: 100px;
+  height: auto;
+}
+
+.form-check-input {
+  transform: scale(1.5);
+}
+
+.tarea-row {
+  border-bottom: 1px solid #ccc;
+  padding: 15px 0;
+}
+
+#puntos {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 20px;
+}
+
+#animacionTesoro {
+  display: none;
+  position: fixed;
+  top: 30%;
+  left: 30%;
+  z-index: 9999;
+}
+
+#animacionTesoro img {
+  width: 300px;
+}
+
+.titulo {
+  font-size: 30px;
+  color: black;
+}

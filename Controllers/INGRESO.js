@@ -16,14 +16,26 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-document.addEventListener('DOMContentLoaded', function () {
-  const iniciarSesionBtn = document.querySelector('.button button');
+document.addEventListener('DOMContentLoaded', async function () {
+  const iniciarSesionBtn = document.querySelector('#iniciarSesionBtn'); // usa ID directamente
+
+  // Mostrar mensaje si viene del registro
+  const mensaje = localStorage.getItem("mensajeIngreso");
+  if (mensaje) {
+    document.getElementById("mensajeExito").innerText = mensaje;
+    localStorage.removeItem("mensajeIngreso");
+  }
 
   iniciarSesionBtn.addEventListener('click', async function (event) {
     event.preventDefault();
 
     const nombre = document.querySelector('#nombre').value.trim();
     const contrasena = document.querySelector('#contrasena').value;
+
+    if (!nombre || !contrasena) {
+      alert("Por favor completa todos los campos.");
+      return;
+    }
 
     try {
       const querySnapshot = await getDocs(collection(db, "USUARIOS"));
@@ -37,8 +49,9 @@ document.addEventListener('DOMContentLoaded', function () {
       });
 
       if (usuarioEncontrado) {
+        localStorage.setItem("usuarioActivo", nombre); // ✅ Guarda sesión activa
         alert("Inicio de sesión exitoso");
-        window.location.href = "../Views/Diverfamily.html";
+        window.location.href = "../Views/Diverfamily.html"; // redirige correctamente
       } else {
         alert("Nombre o contraseña incorrectos.");
       }

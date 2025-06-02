@@ -36,7 +36,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
 
                 localStorage.setItem("mensajeIngreso", "¡Integrante registrado con éxito!");
-                
+
+                // ✅ Mostrar mensaje de éxito
+                const mensajeExito = document.getElementById("mensajeExito");
+                if (mensajeExito) {
+                    mensajeExito.style.display = "block";
+                    setTimeout(() => {
+                        mensajeExito.style.display = "none";
+                    }, 3000); // Ocultar tras 3 segundos
+                }
+
             } catch (error) {
                 console.error("Error al registrar integrante:", error);
                 alert("Error al registrar integrante: " + error.message);
@@ -51,41 +60,40 @@ document.addEventListener("DOMContentLoaded", () => {
             const textarea = document.getElementById("listadoIntegrantes");
             
             if (textarea.style.display === "none") {
-            textarea.style.display = "block";
-            textarea.value = "Cargando integrantes...";
+                textarea.style.display = "block";
+                textarea.value = "Cargando integrantes...";
 
-            try {
-                const querySnapshot = await getDocs(collection(db, "USUARIOS"));
-                const integrantes = [];
+                try {
+                    const querySnapshot = await getDocs(collection(db, "USUARIOS"));
+                    const integrantes = [];
 
-                querySnapshot.forEach((doc) => {
-                    const data = doc.data();
-                    console.log("Usuario encontrado:", data); // ✅ Para depuración
+                    querySnapshot.forEach((doc) => {
+                        const data = doc.data();
+                        console.log("Usuario encontrado:", data); // ✅ Para depuración
 
-                    if (data.registradoPor === nombreLider && data.rol !== "Lider") {
-                        integrantes.push(`• ${data.nombre} - ${data.rol}`);
+                        if (data.registradoPor === nombreLider && data.rol !== "Lider") {
+                            integrantes.push(`• ${data.nombre} - ${data.rol}`);
+                        }
+                    });
+
+                    if (integrantes.length === 0) {
+                        textarea.value = "No hay integrantes registrados por este líder.";
+                    } else {
+                        textarea.value = integrantes.join("\n");
                     }
-                });
 
-                if (integrantes.length === 0) {
-                    textarea.value = "No hay integrantes registrados por este líder.";
-                } else {
-                    textarea.value = integrantes.join("\n");
+                } catch (error) {
+                    console.error("Error al obtener usuarios:", error);
+                    textarea.value = "Error al cargar integrantes.";
                 }
-
-            } catch (error) {
-                console.error("Error al obtener usuarios:", error);
-                textarea.value = "Error al cargar integrantes.";
+            } else {
+                // Ocultar si ya estaba visible
+                textarea.style.display = "none";
             }
-        } else {
-            // Ocultar si ya estaba visible
-            textarea.style.display = "none";
-         }
-    });
-} 
+        });
+    }
 
-            // Nuevo integrante - limpiar formulario
-    
+    // Nuevo integrante - limpiar formulario
     if (botonNuevo) {
         botonNuevo.addEventListener("click", () => {
             document.getElementById("nombre").value = "";
@@ -99,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-// Redirigir al formulario de ingreso
+    // Redirigir al formulario de ingreso
     if (botonContinuar) {
         botonContinuar.addEventListener("click", () => {
             window.location.href = "../Views/INGRESO.HTML";
