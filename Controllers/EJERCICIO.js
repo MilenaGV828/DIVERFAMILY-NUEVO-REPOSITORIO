@@ -3,14 +3,13 @@ import {guardarRegistro} from './BASEDEDATOS.js';
 document.getElementById("REGISTRARME").addEventListener("click", async function (e) {
     e.preventDefault(); // evita que el formulario se envíe automáticamente
     // tu código...
-
+    const rol = 'Lider'; // Asignar el rol de líder
 
     // Obtener valores del formulario
     const nombre = document.getElementById("nombre").value.trim();
     const documento = document.getElementById("documento").value.trim();
     const contrasena = document.getElementById("contrasena").value;
     const validarContrasena = document.getElementById("validarContrasena").value;
-    const rol = document.getElementById("rol").value;
 
     // Validaciones básicas
     if (!nombre || !documento || !contrasena || !validarContrasena) {

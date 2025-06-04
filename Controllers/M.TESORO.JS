@@ -28,28 +28,29 @@ let puntos = 0;
 
 // Función para cargar tareas desde Firestore
 async function cargarTareas() {
-  const docRef = doc(db, "usuarios", usuarioActivo);
+  const docRef = doc(db, "MAPA DEL TESORO", usuarioActivo);
   const docSnap = await getDoc(docRef);
-
+  console.log("Cargando tareas desde Firestore para el usuario:", docSnap);
+  console.log("Cargando tareas para el usuario:", usuarioActivo);
+  
   if (docSnap.exists()) {
     tareas = docSnap.data().tareas || [];
-
+    puntos = docSnap.data().puntosTotales || 0;
     tareas.forEach((tarea, index) => {
       const tareaHTML = `
-        <div class="row tarea-row align-items-center">
-          <div class="col-2">
-            <img src="../assets/tareas/${tarea.imagen}" class="img-thumbnail" />
-          </div>
-          <div class="col-8 text-start">
-            ${tarea.nombre}
-          </div>
-          <div class="col-2">
-            <input type="checkbox" class="form-check-input" data-index="${index}" ${tarea.completada ? 'checked' : ''}>
-          </div>
-        </div>`;
+      <div class="row tarea-row align-items-center">
+      <div class="col-2">
+      <img src="../assets/tareas/${tarea.nombre}.jpg" class="img-thumbnail" />
+      </div>
+      <div class="col-8 text-start">
+      ${tarea.nombre}
+      </div>
+      <div class="col-2">
+      <input type="checkbox" class="form-check-input" data-index="${index}" ${tarea.completada ? 'checked' : ''}>
+      </div>
+      </div>`;
       tareasContainer.innerHTML += tareaHTML;
 
-      if (tarea.completada) puntos++;
     });
 
     actualizarPuntos();
@@ -70,16 +71,26 @@ tareasContainer.addEventListener("change", (e) => {
   if (e.target.classList.contains("form-check-input")) {
     const index = e.target.dataset.index;
     tareas[index].completada = e.target.checked;
-    puntos = tareas.filter(t => t.completada).length;
+    puntos = puntos + 10;
     actualizarPuntos();
   }
 });
 
 // Guardar estado en Firestore
 btnGuardar.addEventListener("click", async () => {
-  const docRef = doc(db, "usuarios", usuarioActivo);
+  const docRef = doc(db, "MAPA DEL TESORO", usuarioActivo);
   await updateDoc(docRef, {
+    puntosTotales: puntos,
     tareas: tareas
   });
   alert("✅ ¡Tareas guardadas correctamente!");
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (usuarioActivo) {
+    cargarTareas();
+  } else {
+    alert("❌ No hay usuario activo.");
+     window.location.href = "index.html";
+  }
 });

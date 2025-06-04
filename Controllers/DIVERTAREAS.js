@@ -2,7 +2,9 @@ import { db } from "./BASEDEDATOS.js";
 import {
   collection,
   doc,
-  getDoc,
+  query,
+  where,
+  getDocs,
   setDoc
 } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
 
@@ -10,7 +12,7 @@ import {
 document.getElementById("btnAsignar").addEventListener("click", async () => {
   const nombre = document.getElementById("usuario").value.trim();
   const documento = document.getElementById("password").value.trim();
-
+  console.log('documento:', typeof documento); // Para depuración
   if (!nombre || !documento) {
     alert("❌ Ingresa nombre de usuario y documento.");
     return;
@@ -18,16 +20,29 @@ document.getElementById("btnAsignar").addEventListener("click", async () => {
 
   try {
     // Validar usuario en la colección INTEGRANTES
-    const docRef = doc(db, "INTEGRANTES", documento);
-    const docSnap = await getDoc(docRef);
 
-    if (!docSnap.exists()) {
+    // Select * from INTEGRANTES where constrasena = documento;
+    const q = query(
+      collection(db, "INTEGRANTES"),
+      where("contrasena", "==", documento)
+    );
+
+    const docSnap = await getDocs(q);
+    
+    if (docSnap.empty) {
       alert("❌ Usuario no registrado en INTEGRANTES.");
       return;
     }
 
-    const data = docSnap.data();
-    if (data.nombre !== nombre) {
+    let dataEncontrada = null;
+    docSnap.forEach((doc) => {
+      const data = doc.data();
+      if (data.nombre === nombre) {
+        dataEncontrada = data;
+      }
+    });
+
+    if (!dataEncontrada) {
       alert("❌ El nombre no coincide con el documento.");
       return;
     }
@@ -45,7 +60,7 @@ document.getElementById("btnAsignar").addEventListener("click", async () => {
           tareasSeleccionadas.push({
             nombre: label.innerText,
             completada: false,
-            puntos: 5
+            puntos: 10
           });
         }
       }
@@ -74,7 +89,7 @@ document.getElementById("btnAsignar").addEventListener("click", async () => {
 
 // Botón Mapa del Tesoro
 document.getElementById("btnMapaTesoro").addEventListener("click", () => {
-  window.location.href = "../views/MAPA DEL TESORO.html";
+  window.location.href = "../Views/MAPA_DEL_TESORO.HTML";
 });
 
 // Botón Regresar al Menú

@@ -1,5 +1,5 @@
 
-import { guardarRegistro, db } from './BASEDEDATOS.js';
+import { guardarIntegrante, guardarRegistro, db } from './BASEDEDATOS.js';
 import { collection, getDocs } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -15,9 +15,14 @@ document.addEventListener("DOMContentLoaded", () => {
             const contrasena = document.getElementById("contrasena").value;
             const rol = document.getElementById("rol").value;
             const nombreLider = localStorage.getItem("nombreLider");
-
+            console.log("Nombre del líder:", contrasena); // ✅ Para depuración
             if (!nombre || !contrasena || !rol) {
                 alert("Por favor completa todos los campos.");
+                return;
+            }
+            const exp = /^\d+$/
+            if (!exp.test(contrasena)) {
+                alert("La contraseña debe ser solo números. Por favor, ingresa una contraseña válida.");
                 return;
             }
 
@@ -29,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
             };
 
             try {
+                await guardarIntegrante(usuario);
                 await guardarRegistro(usuario);
 
                 if (rol === "Lider") {

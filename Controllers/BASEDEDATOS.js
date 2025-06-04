@@ -24,6 +24,11 @@ export async function guardarRegistro(datos) {
   console.log("Documento guardado con ID:", docRef.id);
   return docRef.id;
 }
+export async function guardarIntegrante(datos) {
+  const docRef = await addDoc(collection(db, "INTEGRANTES"), datos);
+  console.log("Documento guardado con ID:", docRef.id);
+  return docRef.id;
+}
 
 // 3. Aquí es donde debes poner la línea para exportar `db`
 export { db };
